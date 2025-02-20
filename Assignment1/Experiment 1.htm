@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff4f5a;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            color: black;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #d90429;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: #d90429;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #ff4f5a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form action="#" method="post">
+            <label>First Name:</label>
+            <input type="text" name="first_name" required>
+            <label>Last Name:</label>
+            <input type="text" name="last_name" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Mobile Number:</label>
+            <input type="text" name="mobile" maxlength="10" required>
+            <label>Gender:</label>
+            <select name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <label>Address:</label>
+            <textarea name="address" rows="4" required></textarea>
+            <label>City:</label>
+            <input type="text" name="city" required>
+            <label>Pin Code:</label>
+            <input type="text" name="pin" maxlength="6" required>
+            <label>Course:</label>
+            <select name="course" required>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="PhD">PhD</option>
+                <option value="MS">MS</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</body>
+</html>

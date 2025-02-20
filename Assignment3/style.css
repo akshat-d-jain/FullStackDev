@@ -1,0 +1,147 @@
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+ }
+ 
+ .video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: black;
+ }
+ 
+ 
+ /* Navbar Styles */
+ .navbar {
+    background: none !important;
+    padding: 0.3rem 0.5rem !important;
+    height: 2cm;
+    display: flex;
+    align-items: center;
+ }
+ 
+ 
+ .navbar-brand {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ }
+ 
+ 
+ .nav-link {
+    color: #fff !important;
+    padding: 0.3rem 0.8rem !important;
+    font-size: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ }
+ 
+ 
+ .dropdown-item {
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+ }
+ 
+ 
+ .container h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    margin-top: 7rem;
+ }
+ 
+ 
+ @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+ }
+ 
+ 
+ /* Card Flip Styles */
+ .card-flip {
+    perspective: 1000px;
+    margin-bottom: 30px;
+ }
+ 
+ 
+ .card-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+ }
+ 
+ 
+ .card-flip:hover .card-flip-inner {
+    transform: rotateY(180deg);
+ }
+ 
+ 
+ .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+ }
+ 
+ 
+ .card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ 
+ .card-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+ }
+ 
+ 
+ .card h3 {
+    color: #222;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+ }
+ 
+ 
+ .card p {
+    color: #444;
+ }
+ 
+ 
+ .card-back h4 {
+    color: #222;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+ }
+ 
+ 
+ .card-back p {
+    color: #444;
+    line-height: 1.6;
+ }
+ 

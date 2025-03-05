@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input[type="password"], input[type="tel"], input[type="email"] {
+            background: #f0f0f0;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        input:disabled {
+            background: #e0e0e0;
+            cursor: not-allowed;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #388E3C;
+        }
+        .error {
+            color: #D32F2F;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Password Protected Form</h2>
+    <input type="password" id="password" placeholder="Enter Password" autofocus>
+    <div id="password-error" class="error">Invalid password</div>
+    <button onclick="activateForm()">Activate</button>
+    <form id="userForm" onsubmit="return validateForm(event)">
+        <input type="tel" id="mobile" placeholder="Mobile Number" disabled>
+        <div id="mobile-error" class="error">Invalid mobile number</div>
+        <input type="email" id="email" placeholder="Email Address" disabled>
+        <div id="email-error" class="error">Invalid email address</div>
+        <button type="submit" id="submitBtn" disabled>Submit</button>
+    </form>
+</div>
+<script>
+    const PASSWORD = "password123";
+
+    function activateForm() {
+        const password = document.getElementById("password").value;
+        const error = document.getElementById("password-error");
+        const inputs = document.querySelectorAll("#mobile, #email");
+        const submitBtn = document.getElementById("submitBtn");
+        
+        if (password === PASSWORD) {
+            inputs.forEach(input => input.disabled = false);
+            submitBtn.disabled = false;
+            error.style.display = "none";
+            alert("Form Activated");
+        } else {
+            error.style.display = "block";
+        }
+    }
+
+    function validateForm(e) {
+        e.preventDefault();
+        let isValid = true;
+        const mobile = document.getElementById("mobile");
+        const email = document.getElementById("email");
+        const mobileError = document.getElementById("mobile-error");
+        const emailError = document.getElementById("email-error");
+        const mobileRegex = /^\d{10}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        mobileError.style.display = mobileRegex.test(mobile.value) ? "none" : (isValid = false, "block");
+        emailError.style.display = emailRegex.test(email.value) ? "none" : (isValid = false, "block");
+
+        if (isValid) {
+            alert("Form Submitted Successfully");
+            e.target.reset();
+            document.querySelectorAll("input").forEach(input => input.disabled = true);
+            document.getElementById("submitBtn").disabled = true;
+        }
+    }
+</script>
+</body>
+</html>
